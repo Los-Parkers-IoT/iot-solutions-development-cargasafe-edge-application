@@ -1,13 +1,13 @@
 from flask import Flask
 
-import iam.application.services
-from health.interfaces.services import health_api
+from monitoring.interfaces.services import telemetry_api
 from shared.infrastructure.database import init_db
 
 app = Flask(__name__)
-app.register_blueprint(health_api)
+app.register_blueprint(telemetry_api)
 
 first_request = True
+
 
 @app.before_request
 def setup():
@@ -16,6 +16,7 @@ def setup():
     :return: None
     """
     global first_request
+
     if first_request:
         first_request = False
         init_db()
