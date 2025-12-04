@@ -2,7 +2,7 @@ import requests
 
 class MonitoringApi:
   def __init__(self):
-    self.baseUrl = 'http://localhost:8080/api/v1/telemetry'
+    self.baseUrl = 'https://iot-solutions-development-cargasafe.onrender.com/api/v1/telemetry'
     pass
   
 
